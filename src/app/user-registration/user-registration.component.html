@@ -1,0 +1,63 @@
+<div class="container" [hidden]="submitted">
+  <h1>Registration Form</h1>
+  <form #userForm="ngForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username"
+      [(ngModel)]="model.username" required #username="ngModel">
+      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+        Username invalid
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password"
+      [(ngModel)]="model.password" required #password="ngModel">
+      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+        Password invalid
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email"
+      [(ngModel)]="model.email" required #email="ngModel">
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        Email invalid
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" id="age" name="age"
+      [(ngModel)]="model.age" required #age="ngModel">
+      <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+        Age invalid
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="diploma">Diploma</label>
+      <select class="form-control" id="diploma" [(ngModel)]="model.diploma" name="diploma">
+        <option *ngFor="let diploma of diplomaTypes" [value]="diploma">{{diploma}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">SEND</button>
+  </form>
+</div>
+<div class="container" [hidden]="!submitted">
+  <h1>Registration results</h1>
+  <div class="row">
+    <div>Username: {{model.username}}</div>
+  </div>
+  <div class="row">
+    <div>Password: {{model.password}}</div>
+  </div>
+  <div class="row">
+    <div>Email: {{model.email}}</div>
+  </div>
+  <div class="row">
+    <div>Age: {{model.age}}</div>
+  </div>
+  <div class="row">
+    <div>Diploma: {{model.diploma}}</div>
+  </div>
+  <button class="btn btn-default" (click)="reset(); userForm.reset()">RESET</button>
+</div>
