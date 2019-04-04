@@ -7,12 +7,36 @@
       <input class="form-control" type="text" id="username" formControlName="username" required>
     </div>
     <div class="form-group">
-        <label for="password">Password: </label>
-        <input class="form-control" type="password" id="password" formControlName="password" required>
+      <label for="password">Password: </label>
+      <input class="form-control" type="password" id="password" formControlName="password" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input class="form-control" type="email" id="email" formControlName="email" required>
+    </div>
+    <div formGroupName="lakcim">
+      <label>Város:
+        <input type="text" formControlName="varos">
+      </label>
+      <label>Utca:
+        <input type="text" formControlName="utca">
+      </label>
+      <label for="email">Irsz.:
+        <input type="number" formControlName="iranyitoszam">
+      </label>
+
+    </div>
+    <div formArrayName="bevasarloLista">
+      <h4>A következőket kell megvenni:</h4>
+      <button class="btn btn-error" (click)="newArrayElement()">Add NEW</button>
+      <div *ngFor="let ctrl of bevasarloLista.controls; let i=index">
+        <label>Listaelem: </label>
+        <input type="text" [formControlName]="i">
       </div>
+    </div>
     <button type="submit" class="btn btn-success" [disabled]="!signupData.valid">SUBMIT</button>
   </form>
   <div>
   </div>
   <button class="btn btn-default" (click)="setDefault()">SET DEFAULT</button>
-  </div>
+</div>

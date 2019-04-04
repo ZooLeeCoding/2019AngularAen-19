@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
+import { setDefaultService } from 'selenium-webdriver/opera';
 
 @Component({
   selector: 'app-user-registration-reactive',
@@ -8,14 +9,36 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class UserRegistrationReactiveComponent implements OnInit {
 
-  signupData = new FormGroup({
+  /*signupData = new FormGroup({
     username: new FormControl('user'),
     password: new FormControl('password')
+  })*/
+
+  constructor(private fBuilder: FormBuilder) { }
+
+  signupData = this.fBuilder.group({
+    username: ['user1', Validators.required],
+    password: ['', Validators.minLength(8)],
+    email: ['example@example.example'],
+    bevasarloLista: this.fBuilder.array([
+      this.fBuilder.control('almalé')
+    ]),
+    lakcim: this.fBuilder.group({
+      varos: [''],
+      utca: [''],
+      iranyitoszam: [6723]
+    })
   })
 
-  constructor() { }
-
   ngOnInit() {
+  }
+
+  get bevasarloLista() {
+    return this.signupData.get('bevasarloLista') as FormArray;
+  }
+
+  newArrayElement() {
+    this.bevasarloLista.push(this.fBuilder.control('new'));
   }
 
   setDefault() {
@@ -27,6 +50,11 @@ export class UserRegistrationReactiveComponent implements OnInit {
       username: "user_onlyzoolee"
     })
     //this.username.setValue('New User');
+  }
+
+  onSubmit() {
+    console.log(this.signupData.valid);
+    this.setDefault();
   }
 
 }
