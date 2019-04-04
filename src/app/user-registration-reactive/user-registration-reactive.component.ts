@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-user-registration-reactive',
@@ -8,7 +8,10 @@ import { FormControl } from '@angular/forms';
 })
 export class UserRegistrationReactiveComponent implements OnInit {
 
-  username = new FormControl('user');
+  signupData = new FormGroup({
+    username: new FormControl('user'),
+    password: new FormControl('password')
+  })
 
   constructor() { }
 
@@ -16,7 +19,14 @@ export class UserRegistrationReactiveComponent implements OnInit {
   }
 
   setDefault() {
-    this.username.setValue('New User');
+    /*this.signupData.setValue({
+      username: 'User_zoli',
+      password: 'zooooooleeeeeee'
+    })*/
+    this.signupData.patchValue({
+      username: "user_onlyzoolee"
+    })
+    //this.username.setValue('New User');
   }
 
 }
