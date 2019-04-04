@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Reactive User Registration
+  </h1>
+  <form>
+    <div class="form-group">
+      <label for="username">Username: </label>
+      <input class="form-control" type="text" id="username" [formControl]="username">
+    </div>
+  </form>
+  <div>
+    <p>
+      {{username.value}}
+    </p>
+  </div>
+  <button class="btn btn-default" (click)="setDefault()">SET DEFAULT</button>
+  </div>

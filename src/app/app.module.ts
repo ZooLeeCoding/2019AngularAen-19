@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { CompositContentComponent } from './composit-content/composit-content.co
 
 import { ObservableExampleService } from './observable-example.service';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { UserRegistrationReactiveComponent } from './user-registration-reactive/user-registration-reactive.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,13 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     ErrorComponent,
     SmallerWorldComponent,
     CompositContentComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    UserRegistrationReactiveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [ObservableExampleService],

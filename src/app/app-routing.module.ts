@@ -7,8 +7,10 @@ import { SmallerWorldComponent } from './smaller-world/smaller-world.component';
 import { CompositContentComponent } from './composit-content/composit-content.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
+import { UserRegistrationReactiveComponent } from './user-registration-reactive/user-registration-reactive.component';
+
 const routes: Routes = [
-  {path: '', component: UserRegistrationComponent},
+  {path: '', component: UserRegistrationReactiveComponent},
   {path: 'hello', component: HelloComponent},
   {path: 'world/:name', component: WorldComponent, children: [
     {path: '', component: ErrorComponent},
