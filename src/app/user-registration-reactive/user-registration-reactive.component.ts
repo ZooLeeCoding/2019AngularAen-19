@@ -9,6 +9,14 @@ import { setDefaultService } from 'selenium-webdriver/opera';
 })
 export class UserRegistrationReactiveComponent implements OnInit {
 
+  myDate = new Date();
+  nevLista = ['Péter', 'Katalin', 'Elemér', 'Etel'];
+  newName='hey';
+
+  pushName() {
+    this.nevLista.push(this.newName);
+  }
+
   /*signupData = new FormGroup({
     username: new FormControl('user'),
     password: new FormControl('password')
