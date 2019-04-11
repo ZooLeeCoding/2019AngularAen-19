@@ -1,0 +1,23 @@
+<div>
+    <h2>Pipe tesztelő terület</h2>
+    <p>
+      {{myDate | date:'yy-MMM-dd -- hh:mm' | uppercase}}
+    </p>
+    <div>
+      <ul *ngFor="let nev of (nevLista | privilegeN)">
+      <li>
+        {{nev | uppercase}}
+      </li>
+      </ul>
+      <input type="text" [(ngModel)]="newName">
+      <button class="btn btn-default" (click)="pushName()">
+        ADD NAME</button>
+    </div>
+    <div>
+      <h4>Fordítás</h4>
+      <textarea [(ngModel)]="toBeTranslated"></textarea>
+      <article>
+        {{toBeTranslated | translatorPipe: true:5}}
+      </article>
+    </div>
+  </div>

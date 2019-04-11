@@ -14,6 +14,9 @@ import { CompositContentComponent } from './composit-content/composit-content.co
 import { ObservableExampleService } from './observable-example.service';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserRegistrationReactiveComponent } from './user-registration-reactive/user-registration-reactive.component';
+import { PrivilegeNPipe } from './privilege-n.pipe';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { TranslatorPipePipe } from './translator-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { UserRegistrationReactiveComponent } from './user-registration-reactive/
     SmallerWorldComponent,
     CompositContentComponent,
     UserRegistrationComponent,
-    UserRegistrationReactiveComponent
+    UserRegistrationReactiveComponent,
+    PrivilegeNPipe,
+    PipeDemoComponent,
+    TranslatorPipePipe
   ],
   imports: [
     BrowserModule,
