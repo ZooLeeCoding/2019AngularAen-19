@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { UserRegistrationReactiveComponent } from './user-registration-reactive/
 import { PrivilegeNPipe } from './privilege-n.pipe';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { TranslatorPipePipe } from './translator-pipe.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,15 @@ import { TranslatorPipePipe } from './translator-pipe.pipe';
     UserRegistrationReactiveComponent,
     PrivilegeNPipe,
     PipeDemoComponent,
-    TranslatorPipePipe
+    TranslatorPipePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ObservableExampleService],
   bootstrap: [AppComponent]

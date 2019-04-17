@@ -8,10 +8,13 @@ import { CompositContentComponent } from './composit-content/composit-content.co
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { UserRegistrationReactiveComponent } from './user-registration-reactive/user-registration-reactive.component';
+import { LoginComponent } from './login/login.component';
+
 
 const routes: Routes = [
   //{path: '', component: UserRegistrationReactiveComponent},
-  {path: '', component: PipeDemoComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
   {path: 'hello', component: HelloComponent},
   {path: 'world/:name', component: WorldComponent, children: [
     {path: '', component: ErrorComponent},
