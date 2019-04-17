@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ObservableExampleService } from '../observable-example.service';
+import { ExampleServerService } from '../example-server.service';
 
 @Component({
   selector: 'app-hello',
@@ -9,8 +10,11 @@ import { ObservableExampleService } from '../observable-example.service';
 })
 export class HelloComponent implements OnInit {
 
+  serverMessage = '';
+
   constructor(private router: Router, 
-    private observableExample: ObservableExampleService) { }
+    private observableExample: ObservableExampleService,
+    private exampleServer: ExampleServerService) { }
 
   ngOnInit() {
     this.observableExample.callObserver();
