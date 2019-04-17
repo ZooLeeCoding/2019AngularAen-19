@@ -11,20 +11,20 @@ export class ExampleServerService {
 
   constructor(private http: HttpClient) { }
 
-  loginUser(username: string, password: string):  Observable<ServerMessage> {
+  loginUser(username: string, password: string):  Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     })
 
-    return this.http.post<ServerMessage>(environment.baseUrl + 'login',
-    {username: username, password: password}, {headers: headers});
+    return this.http.post<any>(environment.baseUrl + 'login',
+    {username: username, password: password}, {headers: headers, observe: 'response'});
   }
 
-  logout(): Observable<any> {
-    return this.http.post(environment.baseUrl + 'logout', {})
+  logout(): Observable<ServerMessage> {
+    return this.http.post<ServerMessage>(environment.baseUrl + 'logout', {})
   }
 
-  getProba(): Observable<any> {
-    return this.http.get(environment.baseUrl + 'proba');
+  getProba(): Observable<ServerMessage> {
+    return this.http.get<ServerMessage>(environment.baseUrl + 'proba');
   }
 }
