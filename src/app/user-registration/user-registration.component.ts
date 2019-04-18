@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../util/user';
+import { ExampleServerService } from '../example-server.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-registration',
@@ -15,6 +17,12 @@ export class UserRegistrationComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.exampleServer.signup(this.model.username, this.model.password)
+    .subscribe(data => {
+      this.router.navigate(["login", {msg: data.message}]);
+    }, error => {
+      console.log(error);
+    })
   }
 
   reset() {
@@ -22,7 +30,7 @@ export class UserRegistrationComponent implements OnInit {
     //this.model = new User('user', '', '', 0, this.diplomaTypes[0], false);
   }
 
-  constructor() { }
+  constructor(private router: Router, private exampleServer: ExampleServerService) { }
 
   ngOnInit() {
   }

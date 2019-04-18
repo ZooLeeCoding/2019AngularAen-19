@@ -16,6 +16,7 @@ const routes: Routes = [
   //{path: '', component: UserRegistrationReactiveComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'signup', component: UserRegistrationComponent},
   {path: 'hello', component: HelloComponent, canActivate: [MyAuthGuard]},
   {path: 'world/:name', component: WorldComponent, canActivate: [MyAuthGuard],
    children: [

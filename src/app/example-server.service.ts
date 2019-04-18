@@ -28,4 +28,14 @@ export class ExampleServerService {
   getProba(): Observable<ServerMessage> {
     return this.http.get<ServerMessage>(environment.baseUrl + 'proba');
   }
+
+  signup(username: string, password: string): Observable<ServerMessage> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+    
+    return this.http.post<ServerMessage>(environment.baseUrl + 'signup',
+    {username: username, password: password}, {headers: headers});
+  
+  }
 }

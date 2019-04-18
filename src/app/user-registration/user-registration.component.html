@@ -1,4 +1,4 @@
-<div class="container" [hidden]="submitted">
+<div class="container">
   <h1>Registration Form</h1>
   <form #userForm="ngForm" (submit)="onSubmit()">
     <div class="form-group">
@@ -41,23 +41,4 @@
     </div>
     <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">SEND</button>
   </form>
-</div>
-<div class="container" [hidden]="!submitted">
-  <h1>Registration results</h1>
-  <div class="row">
-    <div>Username: {{model.username}}</div>
-  </div>
-  <div class="row">
-    <div>Password: {{model.password}}</div>
-  </div>
-  <div class="row">
-    <div>Email: {{model.email}}</div>
-  </div>
-  <div class="row">
-    <div>Age: {{model.age}}</div>
-  </div>
-  <div class="row">
-    <div>Diploma: {{model.diploma}}</div>
-  </div>
-  <button class="btn btn-default" (click)="reset(); userForm.reset()">RESET</button>
 </div>
