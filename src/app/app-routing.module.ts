@@ -10,13 +10,15 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { UserRegistrationReactiveComponent } from './user-registration-reactive/user-registration-reactive.component';
 import { LoginComponent } from './login/login.component';
 
+import { MyAuthGuard } from './my-auth.guard';
 
 const routes: Routes = [
   //{path: '', component: UserRegistrationReactiveComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'hello', component: HelloComponent},
-  {path: 'world/:name', component: WorldComponent, children: [
+  {path: 'hello', component: HelloComponent, canActivate: [MyAuthGuard]},
+  {path: 'world/:name', component: WorldComponent, canActivate: [MyAuthGuard],
+   children: [
     {path: '', component: ErrorComponent},
     {path: 'smaller', component: SmallerWorldComponent}
   ]},

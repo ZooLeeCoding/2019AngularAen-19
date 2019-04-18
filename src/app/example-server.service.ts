@@ -21,6 +21,7 @@ export class ExampleServerService {
   }
 
   logout(): Observable<ServerMessage> {
+    localStorage.removeItem("user");
     return this.http.post<ServerMessage>(environment.baseUrl + 'logout', {})
   }
 
