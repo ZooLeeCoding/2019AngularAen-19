@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { MakeMoreVisible } from './util/animations';
+import { MakeMoreVisible, FadeInComponent } from './util/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [MakeMoreVisible]
+  animations: [MakeMoreVisible, FadeInComponent]
 })
 export class AppComponent {
   visibleText = false;

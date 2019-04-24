@@ -29,3 +29,17 @@ export const MakeMoreVisible = trigger('makeMoreVisible', [
         animate('1s')
     ])
 ]);
+
+export const FadeInComponent = trigger('fadeInComponent', [
+    transition('* => *', [
+        query(':enter',
+            [style({ opacity: 0 })],
+            { optional: true }),
+        query(':leave',
+            [style({ opacity: 1 }), animate('1s', style({ opacity: 0 }))],
+            { optional: true }),
+        query(':enter',
+            [style({ opacity: 0 }), animate('1s',style({ opacity: 1}))],
+            { optional: true })
+    ])
+]);
