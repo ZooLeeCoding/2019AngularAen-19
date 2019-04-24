@@ -1,30 +1,11 @@
 import { Component } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { MakeMoreVisible } from './util/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('makeMoreVisible', [
-      state('normal', style({
-        backgroundColor: 'white',
-        fontSize: "14px",
-        color: "black"
-      })),
-      state('visible', style({
-        backgroundColor: 'grey',
-        fontSize: '24px',
-        color: 'red'
-      })),
-      transition('normal => visible', [
-        animate('3s')
-      ]),
-      transition('visible => normal', [
-        animate('1s')
-      ])
-    ])
-  ]
+  animations: [MakeMoreVisible]
 })
 export class AppComponent {
   visibleText = false;

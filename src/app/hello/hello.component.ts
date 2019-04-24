@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 import { ObservableExampleService } from '../observable-example.service';
 import { ExampleServerService } from '../example-server.service';
+import { ListAnimations } from '../util/animations';
 
 @Component({
   selector: 'app-hello',
   templateUrl: './hello.component.html',
-  styleUrls: ['./hello.component.css']
+  styleUrls: ['./hello.component.css'],
+  animations: [ListAnimations]
 })
 export class HelloComponent implements OnInit {
+  @HostBinding('@listAnimations')
 
   strings = ["Zoltán", "is", "name", "my", "Hello,"];
 

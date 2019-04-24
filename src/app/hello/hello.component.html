@@ -5,3 +5,10 @@
 <button (click)="toggleNavigate()">CLICK</button>
 <a [routerLink]="['/world', 'Zoli', {foo: 'bar'}]">This is a routerLink</a>
 <button (click)="logout()">LOGOUT</button>
+<div>
+  <ul>
+    <li *ngFor="let str of strings">
+      {{str}}
+    </li>
+  </ul>
+</div>
