@@ -14,11 +14,11 @@ import { MyAuthGuard } from './my-auth.guard';
 
 const routes: Routes = [
   //{path: '', component: UserRegistrationReactiveComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: 'hello', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: UserRegistrationComponent},
-  {path: 'hello', component: HelloComponent, canActivate: [MyAuthGuard]},
-  {path: 'world/:name', component: WorldComponent, canActivate: [MyAuthGuard],
+  {path: 'hello', component: HelloComponent},
+  {path: 'world/:name', component: WorldComponent,
    children: [
     {path: '', component: ErrorComponent},
     {path: 'smaller', component: SmallerWorldComponent}
