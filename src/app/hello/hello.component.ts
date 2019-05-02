@@ -1,6 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { ObservableExampleService } from '../observable-example.service';
 import { ExampleServerService } from '../example-server.service';
 import { ListAnimations } from '../util/animations';
 
@@ -18,7 +17,6 @@ export class HelloComponent implements OnInit {
   serverMessage = '';
 
   constructor(private router: Router, 
-    private observableExample: ObservableExampleService,
     private exampleServer: ExampleServerService) { }
 
   ngOnInit() {
@@ -28,6 +26,10 @@ export class HelloComponent implements OnInit {
     }, error => {
       console.log(error);
     })*/
+  }
+
+  pushNewString(str: string) {
+    this.strings.push(str);
   }
 
   logout() {
