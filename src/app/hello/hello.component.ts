@@ -7,10 +7,9 @@ import { ListAnimations } from '../util/animations';
   selector: 'app-hello',
   templateUrl: './hello.component.html',
   styleUrls: ['./hello.component.css'],
-  animations: [ListAnimations]
 })
 export class HelloComponent implements OnInit {
-  @HostBinding('@listAnimations')
+  //@HostBinding('@listAnimations')
 
   strings = ["Zoltán", "is", "name", "my", "Hello,"];
 

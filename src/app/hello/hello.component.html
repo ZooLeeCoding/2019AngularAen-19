@@ -1,7 +1,7 @@
 <p>
   hello works!
 </p>
-<h4>{{serverMessage}}</h4>
+<h4 id="messageDisplay">{{serverMessage}}</h4>
 <button (click)="toggleNavigate()">CLICK</button>
 <button (click)="logout()">LOGOUT</button>
 <input id="serverMessage" type="text" [(ngModel)]="serverMessage">
