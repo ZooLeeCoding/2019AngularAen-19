@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } 
   from '@angular/platform-browser/animations';
 
@@ -22,6 +22,8 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { TranslatorPipePipe } from './translator-pipe.pipe';
 import { LoginComponent } from './login/login.component';
 
+import { MockServerInterceptorService } from "./mock-server-interceptor.service";
+import { HeaderInterceptorService } from "./header-interceptor.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,15 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ObservableExampleService],
+  providers: [
+    ObservableExampleService,
+    {provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptorService,
+      multi: true},
+    {provide: HTTP_INTERCEPTORS, 
+      useClass: MockServerInterceptorService, 
+      multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,12 +19,11 @@ export class HelloComponent implements OnInit {
     private exampleServer: ExampleServerService) { }
 
   ngOnInit() {
-    /*this.observableExample.callObserver();
     this.exampleServer.getProba().subscribe(data => {
       this.serverMessage = data.message;
     }, error => {
       console.log(error);
-    })*/
+    });
   }
 
   pushNewString(str: string) {
